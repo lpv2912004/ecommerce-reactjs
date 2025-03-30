@@ -1,0 +1,56 @@
+@import '@styles/mixin.module.scss';
+@import '@styles/variable.module.scss';
+
+.container {
+    @include flex_box_custom(center, center, 0px);
+}
+.containerHeader {
+    width: 1250px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 83px;
+}
+
+.menu {
+    cursor: pointer;
+    padding-top: 9px;
+    font-size: 15px;
+    color: $primary_color;
+}
+.containerBoxIcon {
+    @include flex_box_custom(center, center, 10px);
+}
+
+.containerMenu {
+    @include flex_box_custom(center, center, 40px);
+}
+
+.containerBox {
+    @include flex_box_custom(center, center, 20px);
+}
+
+.boxIcon {
+    @include radius_common(50%);
+    @include flex_box_custom(center, center, 0px);
+    background-color: $primary_color;
+    width: 26px;
+    height: 26px;
+}
+
+.menu::after {
+    content: '';
+    display: block;
+    height: 3px;
+    background-color: $primary_color;
+    transform-origin: right;
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 300ms, opacity 500ms;
+    margin-top: 8px;
+}
+.menu:hover::after {
+    // transform-origin: right;
+    opacity: 1;
+    transform: scale(1);
+}
