@@ -1,16 +1,16 @@
-import { useState } from 'react';
 import './App.css';
+import MainLayout from '@components/Layout/Layout';
+import MyHeader from '@components/Header/Header';
+import MyFooter from '@components/Footer/Footer';
 
 function App() {
-    const [count, setCount] = useState(0);
-
-    const file = (x) => {
-        console.log(x);
-    };
-
     return (
         <>
-            <div>hello world</div>
+            <MainLayout>
+                <MyHeader />
+                Content
+                <MyFooter />
+            </MainLayout>
         </>
     );
 }
