@@ -1,9 +1,11 @@
-import MyHeader from '@components/Header/Header';
+import HomePage from '@components/HomePage/HomePage';
+import Info from '@components/Info/Info';
 
 function App() {
     return (
         <>
-            <MyHeader />
+            <HomePage />
+            <Info />
         </>
     );
 }
