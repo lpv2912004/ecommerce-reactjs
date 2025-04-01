@@ -1,10 +1,7 @@
 @import '@styles/variable.module.scss';
 @import '@styles/mixin.module.scss';
 .container {
-    margin-top: 40px;
+    margin-top: 10px;
     @include flex_box_custom(space-between, center, 10px);
-}
-
-.containerItem {
-    @include flex_box_custom(center, center, 10px);
+    flex-wrap: wrap;
 }
