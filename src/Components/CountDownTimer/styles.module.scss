@@ -1,0 +1,12 @@
+@import '@styles/variable.module.scss';
+.box {
+    background-color: $white_color;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 150px;
+}
+
+.title {
+    font-style: 18px;
+    color: $secondary_color;
+}
