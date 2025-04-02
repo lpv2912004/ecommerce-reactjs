@@ -2,14 +2,33 @@
 @import '@styles/variable.module.scss';
 .btn {
     @include btn(176px, 42px, 3px, $primary_color);
-    color: $white_color;
     font-style: 14px;
     font-weight: 300;
     cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+        transition: 0.3s;
+    }
+}
+
+.primaryBtn {
+    background-color: $primary_color;
+    color: $white_color;
+    transition: 0.3s;
     &:hover {
         background-color: transparent;
         color: $primary_color;
         border: 1px solid $primary_color;
-        transition: 0.3s;
+    }
+}
+
+.secondaryBtn {
+    background-color: $white_color;
+    color: $primary_color;
+    border: 1px solid $primary_color;
+    transition: 0.3s;
+    &:hover {
+        background-color: $primary_color;
+        color: $white_color;
     }
 }
