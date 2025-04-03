@@ -28,8 +28,6 @@ const useTranslateXImage = () => {
         }
     };
 
-    console.log(scrollPosition);
-
     useEffect(() => {
         window.addEventListener('scroll', scrollTracking);
         return () => window.removeEventListener('scroll', scrollTracking);

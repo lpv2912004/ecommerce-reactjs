@@ -8,15 +8,17 @@ import { useEffect, useState } from 'react';
 import { getProduct } from '@/apis/productService';
 import PopularProduct from '@components/PopularProduct/PopularProduct';
 import SaleHomePage from '@components/SaleHomePage/SaleHomePage';
+import MyFooter from '@components/Footer/Footer';
 function HomePage() {
     const { container } = styles;
     const [listProducts, setListProducts] = useState([]);
+
     useEffect(() => {
         getProduct().then((res) => {
             setListProducts(res.contents);
         });
     }, []);
-    console.log(listProducts, 'list Product');
+
     return (
         <>
             <MyHeader />
@@ -25,10 +27,9 @@ function HomePage() {
                 <Info />
                 <AdvanceHeading />
                 <HeadingListProduct data={listProducts.slice(0, 2)} />
-                <PopularProduct
-                    data={listProducts.slice(2, listProducts.length)}
-                />
+                <PopularProduct data={listProducts.slice(2, listProducts.length)} />
                 <SaleHomePage />
+                <MyFooter />
             </div>
         </>
     );
