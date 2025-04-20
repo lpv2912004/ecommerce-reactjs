@@ -3,6 +3,7 @@ import styles from './styles.module.scss';
 import { SideBarContext } from '@/contexts/SideBarProvider';
 import classNames from 'classnames';
 import { TfiClose } from 'react-icons/tfi';
+import Login from '@components/ContentSideBar/Login/Login';
 
 function SideBar() {
     const { container, sideBar, overlay, slideSideBar, boxIcon } = styles;
@@ -19,6 +20,7 @@ function SideBar() {
                 })}
                 onClick={handleToogle}
             ></div>
+
             <div
                 className={classNames(sideBar, {
                     [slideSideBar]: isOpen
@@ -29,7 +31,8 @@ function SideBar() {
                         <TfiClose />
                     </div>
                 )}
-                Side bar
+
+                <Login />
             </div>
         </div>
     );
