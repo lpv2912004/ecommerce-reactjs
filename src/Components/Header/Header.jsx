@@ -4,12 +4,13 @@ import { dataBoxIcon, dataMenu } from './Constant';
 import Menu from './Menu/Menu';
 import styles from './styles.module.scss';
 import Logo from '@icons/images/Logo-retina.png';
-import CartIcon from '@icons/svgs/cartIcon.svg';
-import HeartIcon from '@icons/svgs/heartIcon.svg';
-import ReloadIcon from '@icons/svgs/reloadIcon.svg';
+import { CiHeart } from 'react-icons/ci';
+import { TfiReload } from 'react-icons/tfi';
+import { PiShoppingCartThin } from 'react-icons/pi';
 import { useContext, useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { SideBarContext } from '@/contexts/SideBarProvider';
+
 function MyHeader() {
     const {
         containerHeader,
@@ -23,9 +24,13 @@ function MyHeader() {
 
     const { scrollPosition } = useScrollHandling();
     const [fixedHeaderPosition, setFixedHeaderPosition] = useState(false);
-    const { isOpen, setIsOpen } = useContext(SideBarContext);
 
-    console.log(isOpen);
+    const { setIsOpen, setType } = useContext(SideBarContext);
+
+    const handleOpenSideBar = (type) => {
+        setIsOpen(true);
+        setType(type);
+    };
 
     useEffect(() => {
         //mac dinh neu dieu` kien dung' se tu tra ve true false
@@ -51,6 +56,7 @@ function MyHeader() {
                             );
                         })}
                     </div>
+
                     <div className={containerMenu}>
                         {dataMenu.slice(0, 3).map((item, index) => {
                             return (
@@ -79,27 +85,26 @@ function MyHeader() {
                                     key={index}
                                     content={item.content}
                                     href={item.href}
-                                    setIsOpen={setIsOpen}
                                 />
                             );
                         })}
                     </div>
+
                     <div className={containerBoxIcon}>
-                        <img
-                            width={26}
-                            height={26}
-                            src={ReloadIcon}
-                            alt='reloadIcon'
+                        <TfiReload
+                            style={{ fontSize: '20px' }}
+                            onClick={() => handleOpenSideBar('compare')}
                         />
 
-                        <img
-                            width={26}
-                            height={26}
-                            src={HeartIcon}
-                            alt='heartIcon'
+                        <CiHeart
+                            style={{ fontSize: '25px' }}
+                            onClick={() => handleOpenSideBar('wishlist')}
                         />
 
-                        <img width={26} height={26} src={CartIcon} alt='cartIcon' />
+                        <PiShoppingCartThin
+                            style={{ fontSize: '20px' }}
+                            onClick={() => handleOpenSideBar('cart')}
+                        />
                     </div>
                 </div>
             </div>
